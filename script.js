@@ -1,14 +1,11 @@
-const categoryDropdown = document.getElementById("category");
-const products = document.querySelectorAll(".product");
+function updateCounter(textareaId, counterId) {
+  const textarea = document.getElementById(textareaId);
+  const counter = document.getElementById(counterId);
 
-categoryDropdown.addEventListener("change", function () {
-  const selectedCategory = this.value;
-
-  products.forEach(product => {
-    if (selectedCategory === "All" || product.dataset.category === selectedCategory) {
-      product.style.display = "block";
-    } else {
-      product.style.display = "none";
-    }
+  textarea.addEventListener("input", () => {
+    counter.textContent = textarea.value.length;
   });
-});
+}
+
+updateCounter("text1", "count1");
+updateCounter("text2", "count2");
